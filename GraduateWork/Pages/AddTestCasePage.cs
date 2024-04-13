@@ -11,13 +11,13 @@ namespace GraduateWork.Pages
         private static readonly By _titleInputBy = By.ClassName("DcqLJ3");
         private static readonly By _textBy = By.XPath("//*[text()='Basic']");
         private static readonly By _statusDropDownBy = By.CssSelector(".col-xl-4.col-lg-4.col-md-12.col-sm-12.form-group .na4nzw");
-        private static readonly By _severityDropDownBy = By.XPath("//label[@for='0-severity']/following::div[1]");
-        private static readonly By _priorityDropDownBy = By.XPath("//label[@for='0-priority']/following::div[1]");
-        private static readonly By _typeDropDownBy = By.XPath("//label[@for='0-type']/following::div[1]");
-        private static readonly By _layerDropDownBy = By.XPath("//label[@for='0-layer']/following::div[1]");
-        private static readonly By _flakyDropDownBy = By.XPath("//label[@for='0-is_flaky']/following::div[1]");
-        private static readonly By _behaviorDropDownBy = By.XPath("//label[@for='0-behavior']/following::div[1]");
-        private static readonly By _automationStatusDropDownBy = By.XPath("//label[@for='0-isManual']/following::div[1]");
+        private static readonly By _severityDropDownBy = By.XPath("//label[@for='0-severity']/following::div[1]/div");
+        private static readonly By _priorityDropDownBy = By.XPath("//label[@for='0-priority']/following::div[1]/div");
+        private static readonly By _typeDropDownBy = By.XPath("//label[@for='0-type']/following::div[1]/div");
+        private static readonly By _layerDropDownBy = By.XPath("//label[@for='0-layer']/following::div[1]/div");
+        private static readonly By _flakyDropDownBy = By.XPath("//label[@for='0-is_flaky']/following::div[1]/div");
+        private static readonly By _behaviorDropDownBy = By.XPath("//label[@for='0-behavior']/following::div[1]/div");
+        private static readonly By _automationStatusDropDownBy = By.XPath("//label[@for='0-isManual']/following::div[1]/div");
         private static readonly By _saveButtonDropDownBy = By.CssSelector(".G1dmaA.ecSEF_.IAcAWv");
 
         protected override string GetEndpoint()
