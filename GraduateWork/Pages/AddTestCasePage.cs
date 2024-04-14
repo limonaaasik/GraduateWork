@@ -41,6 +41,6 @@ namespace GraduateWork.Pages
         public DropDown FlakyDropDown => new DropDown(Driver, _flakyDropDownBy);
         public DropDown BehaviorDropDown => new DropDown(Driver, _behaviorDropDownBy);
         public DropDown AutoStatusDropDown => new DropDown(Driver, _automationStatusDropDownBy);
-        public UIElement SaveButtonDropDown => new UIElement(Driver, _saveButtonDropDownBy);
+        public UIElement SaveButton => new UIElement(Driver, _saveButtonDropDownBy);
     }
 }

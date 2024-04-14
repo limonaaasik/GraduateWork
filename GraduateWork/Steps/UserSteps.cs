@@ -37,6 +37,6 @@ public class UserSteps : BaseSteps
     public AddTestCasePage ClickAddButton()
     {
         _dashboardPage.ClickAddTestCaseButton();
-        return new AddTestCasePage(Driver, false, "DEMO");
+        return new AddTestCasePage(Driver, false);
     }
 }

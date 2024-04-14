@@ -15,6 +15,7 @@ public class BaseTest
     protected IWebDriver Driver { get; private set; }
 
     protected UserSteps _userSteps;
+    protected TestCaseSteps _testCaseSteps;
 
     protected User Admin { get; private set; }
 
@@ -24,6 +25,7 @@ public class BaseTest
         Driver = new Browser().Driver;
 
         _userSteps = new UserSteps(Driver);
+        _testCaseSteps = new TestCaseSteps(Driver);
 
         Admin = new User
         {
