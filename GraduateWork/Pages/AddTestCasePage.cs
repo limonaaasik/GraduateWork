@@ -25,7 +25,7 @@ namespace GraduateWork.Pages
             return END_POINT;
         }
 
-        protected override bool EvaluateLoadedStatus()
+        public override bool IsPageOpened()
         {
             return WaitsHelper.WaitForVisibilityLocatedBy(_textBy).Displayed;
         }

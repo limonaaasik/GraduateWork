@@ -1,26 +1,37 @@
+using GraduateWork.Helpers.Configuration;
+using GraduateWork.Helpers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using GraduateWork.Helpers;
 using GraduateWork.Helpers.Configuration;
 
 namespace GraduateWork.Pages;
 
-public abstract class BasePage : LoadableComponent<BasePage>
+public abstract class BasePage
 {
-    protected IWebDriver Driver { get; }
+    protected IWebDriver Driver { get; private set; }
     protected WaitsHelper WaitsHelper { get; private set; }
 
-    protected BasePage(IWebDriver driver, bool openByURL = false)
+    public BasePage(IWebDriver driver)
+    {
+        Driver = driver;
+        WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+    }
+
+    public BasePage(IWebDriver driver, bool openPageByUrl)
     {
         Driver = driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
-        if (openByURL) Load();
+        if (openPageByUrl)
+        {
+            OpenPageByURL();
+        }
     }
 
     protected abstract string GetEndpoint();
+    public abstract bool IsPageOpened();
 
-    protected override void ExecuteLoad()
+    protected void OpenPageByURL()
     {
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndpoint());
     }
