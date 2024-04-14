@@ -33,7 +33,6 @@ namespace GraduateWork.Pages
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
         public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
         public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
-        // public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
         public Button LoginInButton => new Button(Driver, LoginInButtonBy);
         
         // Методы действий с элементами

@@ -17,7 +17,7 @@ public abstract class BasePage
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
     }
 
-    public BasePage(IWebDriver driver, bool openPageByUrl)
+    public BasePage(IWebDriver driver, bool openPageByUrl = false)
     {
         Driver = driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
