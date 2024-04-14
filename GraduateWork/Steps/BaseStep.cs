@@ -1,15 +1,13 @@
 using OpenQA.Selenium;
-using GraduateWork.Pages;
-using GraduateWork.Pages.ProjectPages;
 
 namespace GraduateWork.Steps;
 
-public class BaseStep(IWebDriver driver)
+public class BaseSteps
 {
-    protected readonly IWebDriver Driver = driver;
+    protected IWebDriver Driver;
 
-    protected LoginPage? LoginPage { get; set; }
-    protected DashboardPage? DashboardPage { get; set; }
-    protected AddProjectPage? AddProjectPage { get; set; }
-    protected ProjectsPage? ProjectsPage { get; set; }
+    public BaseSteps(IWebDriver driver)
+    {
+        Driver = driver;
+    }
 }
