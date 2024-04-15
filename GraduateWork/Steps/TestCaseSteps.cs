@@ -1,3 +1,5 @@
+using GraduateWork.Elements;
+using GraduateWork.Helpers;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 using OpenQA.Selenium;
@@ -31,5 +33,17 @@ public class TestCaseSteps : BaseSteps
     {
         DashboardPage dashboardPage = new DashboardPage(Driver);
 
+        By titleTestBy = By.XPath($"//*[text()='{testCase.Title}']");
+        UIElement TitleTest = new UIElement(Driver, titleTestBy);
+        TitleTest.Click();
+
+        dashboardPage.ButtonDelete.Click();
+
+        By deleteDialogButtonBy = By.CssSelector(".G1dmaA.X8bxUI.IAcAWv");
+        UIElement DeleteDialogButton = new UIElement(Driver, deleteDialogButtonBy);
+        DeleteDialogButton.Click();
+        
+
+        return dashboardPage;
     }
 }

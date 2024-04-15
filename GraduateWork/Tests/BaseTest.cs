@@ -1,8 +1,6 @@
 ﻿using GraduateWork.Core;
 using GraduateWork.Helpers.Configuration;
 using OpenQA.Selenium;
-using GraduateWork.Core;
-using GraduateWork.Helpers.Configuration;
 using GraduateWork.Models;
 using GraduateWork.Steps;
 

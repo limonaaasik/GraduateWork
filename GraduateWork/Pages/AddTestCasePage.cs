@@ -5,7 +5,7 @@ namespace GraduateWork.Pages
 {
     public class AddTestCasePage(IWebDriver? driver, bool openByURL) : BasePage(driver, openByURL)
     {
-        private string END_POINT = $"icase/DEMO/create";
+        private string END_POINT = $"case/DEMO/create";
 
         // Описание элементов
         private static readonly By _titleInputBy = By.ClassName("DcqLJ3");
