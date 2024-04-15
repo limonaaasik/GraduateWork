@@ -23,3 +23,5 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+- task: PublishAllureReport@1
+  displayName: Publish Report
