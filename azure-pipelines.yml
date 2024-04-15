@@ -25,3 +25,6 @@ steps:
     restoreSolution: '$(solution)'
 - task: PublishAllureReport@1
   displayName: Publish Report
+  inputs:
+    allureVersion: 2.27.0
+    testResultsDir: GraduateWork/bin/Debug/net8.0/allure-results
