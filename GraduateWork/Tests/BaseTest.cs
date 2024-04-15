@@ -3,11 +3,13 @@ using GraduateWork.Helpers.Configuration;
 using OpenQA.Selenium;
 using GraduateWork.Models;
 using GraduateWork.Steps;
+using Allure.NUnit;
 
 namespace GraduateWork.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+[AllureNUnit]
 public class BaseTest
 {
     protected IWebDriver Driver { get; private set; }
