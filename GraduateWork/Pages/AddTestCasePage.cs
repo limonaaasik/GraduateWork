@@ -3,9 +3,9 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Pages
 {
-    public class AddTestCasePage(IWebDriver? driver, bool openByURL, string projectCode) : BasePage(driver, openByURL)
+    public class AddTestCasePage(IWebDriver? driver, bool openByURL) : BasePage(driver, openByURL)
     {
-        private string END_POINT = $"icase/{projectCode}/create";
+        private string END_POINT = $"icase/DEMO/create";
 
         // Описание элементов
         private static readonly By _titleInputBy = By.ClassName("DcqLJ3");

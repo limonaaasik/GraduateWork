@@ -1,5 +1,6 @@
 ﻿using GraduateWork.Elements;
 using OpenQA.Selenium;
+using System.Xml.Linq;
 
 namespace GraduateWork.Pages
 {
@@ -32,5 +33,11 @@ namespace GraduateWork.Pages
             AddTestCaseButton.Click();
         }
 
+        public bool IsTestCaseAdded(string name)
+        {
+            By titleTestBy = By.XPath($"//*[text()='{name}']");
+            UIElement TitleTest = new UIElement(Driver, titleTestBy);
+            return TitleTest.Displayed;
+        }
     }
 }

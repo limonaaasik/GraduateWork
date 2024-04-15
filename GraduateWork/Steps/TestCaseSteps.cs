@@ -10,9 +10,9 @@ public class TestCaseSteps : BaseSteps
     {
     }
 
-    public DashboardPage AddTestCase(TestCase testCase, string projectCode)
+    public DashboardPage AddTestCase(TestCase testCase)
     {
-        AddTestCasePage addTestCase = new AddTestCasePage(Driver, false, projectCode);
+        AddTestCasePage addTestCase = new AddTestCasePage(Driver, false);
         addTestCase.TitleInput.SendKeys(testCase.Title);
         addTestCase.StatusDropDown.SelectByText(testCase.Status);
         addTestCase.SeverityDropDown.SelectByText(testCase.Severity);
@@ -25,5 +25,11 @@ public class TestCaseSteps : BaseSteps
         addTestCase.SaveButton.Click();
         
         return new DashboardPage(Driver);
+    }
+
+    public DashboardPage DeleteTestCase(TestCase testCase)
+    {
+        DashboardPage dashboardPage = new DashboardPage(Driver);
+
     }
 }
