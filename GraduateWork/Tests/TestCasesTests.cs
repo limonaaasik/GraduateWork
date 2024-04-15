@@ -43,8 +43,6 @@ public class TestCasesTests : BaseTest
         DashboardPage dashboard = _userSteps.OpenDEMOProject();
         Assert.That(dashboard.IsPageOpened);
 
-        AddTestCasePage testCasePage = _userSteps.ClickAddButton();
-
 
     }
 }
