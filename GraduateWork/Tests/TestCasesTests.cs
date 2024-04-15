@@ -1,5 +1,6 @@
 using GraduateWork.Models;
 using GraduateWork.Pages;
+using OpenQA.Selenium;
 
 namespace GraduateWork.Tests;
 
@@ -17,7 +18,7 @@ public class TestCasesTests : BaseTest
         AddTestCasePage testCasePage = _userSteps.ClickAddButton();
 
         TestCase expectedTestCase = new TestCase.Builder()
-            .SetTitle("New TestCase Makusheva")
+            .SetTitle("Smoke TestCase Makusheva")
             .SetStatus("Draft")
             .SetSeverity("Critical")
             .SetPriority("High")
@@ -43,8 +44,28 @@ public class TestCasesTests : BaseTest
         DashboardPage dashboard = _userSteps.OpenDEMOProject();
         Assert.That(dashboard.IsPageOpened);
 
+        // добавление  теста
         AddTestCasePage testCasePage = _userSteps.ClickAddButton();
 
+        TestCase expectedTestCase = new TestCase.Builder()
+            .SetTitle("New TestCase Makusheva")
+            .SetStatus("Draft")
+            .SetSeverity("Critical")
+            .SetPriority("High")
+            .SetType("Smoke")
+            .SetLayer("API")
+            .SetFlaky("Yes")
+            .SetBehavior("Positive")
+            .SetAutomationStatus("Manual")
+            .Build();
+
+        _testCaseSteps.AddTestCase(expectedTestCase);
+        Thread.Sleep(2000);
+
+        // сам тест на удаление
+        _testCaseSteps.DeleteTestCase(expectedTestCase);
+        Thread.Sleep(500);  // после удаления элемент удаляется не сразу, нужно время
+        Assert.That(dashboard.IsTestCaseDeleted(expectedTestCase.Title));
 
     }
 }
