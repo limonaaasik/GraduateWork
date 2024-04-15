@@ -1,4 +1,4 @@
-namespace ValueOfObjects.Models;
+namespace GraduateWork.Models;
 
 public class User
 {

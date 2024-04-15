@@ -3,14 +3,14 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Pages
 {
-    public class ProjectPage : BasePage
+    public class ProjectsPage : BasePage
     {
         private static string END_POINT = "projects?status=%5B\"active\"%5D";
 
-        private static readonly By _titleTextBy = By.ClassName(".uA6zAY");
+        private static readonly By _titleTextBy = By.ClassName("uA6zAY");
         private static readonly By _projectLinkBy = By.CssSelector("a.cx2QU4");
 
-        public ProjectPage(IWebDriver driver) : base(driver)
+        public ProjectsPage(IWebDriver driver) : base(driver)
         {
         }
 
@@ -26,6 +26,11 @@ namespace GraduateWork.Pages
 
         public UIElement TitleText => new UIElement(Driver, _titleTextBy);
         public UIElement ProjectLink => new UIElement(Driver, _projectLinkBy);
+
+        public void ClickProjectLink()
+        {
+            ProjectLink.Click();
+        }
 
     }
 }

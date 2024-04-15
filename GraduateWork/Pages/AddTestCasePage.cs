@@ -3,9 +3,9 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Pages
 {
-    public class AddTestCasePage(IWebDriver? driver, bool openByURL, string projectCode) : BasePage(driver, openByURL)
+    public class AddTestCasePage(IWebDriver? driver, bool openByURL) : BasePage(driver, openByURL)
     {
-        private string END_POINT = $"icase/{projectCode}/create";
+        private string END_POINT = $"icase/DEMO/create";
 
         // Описание элементов
         private static readonly By _titleInputBy = By.ClassName("DcqLJ3");
@@ -41,6 +41,6 @@ namespace GraduateWork.Pages
         public DropDown FlakyDropDown => new DropDown(Driver, _flakyDropDownBy);
         public DropDown BehaviorDropDown => new DropDown(Driver, _behaviorDropDownBy);
         public DropDown AutoStatusDropDown => new DropDown(Driver, _automationStatusDropDownBy);
-        public UIElement SaveButtonDropDown => new UIElement(Driver, _saveButtonDropDownBy);
+        public UIElement SaveButton => new UIElement(Driver, _saveButtonDropDownBy);
     }
 }
