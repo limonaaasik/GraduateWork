@@ -1,7 +1,7 @@
 using GraduateWork.Pages;
 using OpenQA.Selenium;
 
-namespace GraduateWork.Tests;
+namespace GraduateWork.Tests.GUITests;
 
 public class ModalWindowTest : BaseTest
 {

@@ -2,7 +2,7 @@ using GraduateWork.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace GraduateWork.Tests;
+namespace GraduateWork.Tests.GUITests;
 
 public class HoverTest : BaseTest
 {

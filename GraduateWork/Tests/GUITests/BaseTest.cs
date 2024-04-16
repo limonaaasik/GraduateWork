@@ -5,7 +5,7 @@ using GraduateWork.Models;
 using GraduateWork.Steps;
 using Allure.NUnit;
 
-namespace GraduateWork.Tests;
+namespace GraduateWork.Tests.GUITests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
