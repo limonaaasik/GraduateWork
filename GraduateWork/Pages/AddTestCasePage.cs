@@ -19,6 +19,8 @@ namespace GraduateWork.Pages
         private static readonly By _behaviorDropDownBy = By.XPath("//label[@for='0-behavior']/following::div[1]/div");
         private static readonly By _automationStatusDropDownBy = By.XPath("//label[@for='0-isManual']/following::div[1]/div");
         private static readonly By _saveButtonDropDownBy = By.CssSelector(".G1dmaA.ecSEF_.IAcAWv");
+        private static readonly By _addAttachmentButonBy = By.ClassName("ES46lo");
+        private static readonly By _modalWindowBy = By.ClassName("ReactModal__Content");
 
         protected override string GetEndpoint()
         {
@@ -42,5 +44,7 @@ namespace GraduateWork.Pages
         public DropDown BehaviorDropDown => new DropDown(Driver, _behaviorDropDownBy);
         public DropDown AutoStatusDropDown => new DropDown(Driver, _automationStatusDropDownBy);
         public UIElement SaveButton => new UIElement(Driver, _saveButtonDropDownBy);
+        public Button AddAttachmentButton => new Button(Driver, _addAttachmentButonBy);
+        public IWebElement ModalWindow => WaitsHelper.WaitForExists(_modalWindowBy);
     }
 }
