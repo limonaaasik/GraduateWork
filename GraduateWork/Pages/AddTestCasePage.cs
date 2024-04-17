@@ -21,6 +21,7 @@ namespace GraduateWork.Pages
         private static readonly By _saveButtonDropDownBy = By.CssSelector(".G1dmaA.ecSEF_.IAcAWv");
         private static readonly By _addAttachmentButonBy = By.ClassName("ES46lo");
         private static readonly By _modalWindowBy = By.ClassName("ReactModal__Content");
+        private static readonly By _errorTextBy = By.XPath("//div[text()='The title may not be greater than 255 characters.']");
 
         protected override string GetEndpoint()
         {
@@ -46,5 +47,12 @@ namespace GraduateWork.Pages
         public UIElement SaveButton => new UIElement(Driver, _saveButtonDropDownBy);
         public Button AddAttachmentButton => new Button(Driver, _addAttachmentButonBy);
         public IWebElement ModalWindow => WaitsHelper.WaitForExists(_modalWindowBy);
+        public IWebElement ErrorText => WaitsHelper.WaitForExists(_errorTextBy);
+
+        public void ClearTestCaseTitle()
+        {
+            TitleInput.SendKeys(Keys.Control + "a");
+            TitleInput.SendKeys(Keys.Delete);
+        }
     }
 }

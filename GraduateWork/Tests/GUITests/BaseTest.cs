@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using GraduateWork.Models;
 using GraduateWork.Steps;
 using Allure.NUnit;
+using GraduateWork.Helpers;
 
 namespace GraduateWork.Tests.GUITests;
 
@@ -16,6 +17,7 @@ public class BaseTest
 
     protected UserSteps _userSteps;
     protected TestCaseSteps _testCaseSteps;
+    protected WaitsHelper _waitsHelper;
 
     protected User Admin { get; private set; }
 
