@@ -26,6 +26,7 @@ public class BaseTest
     {
         Driver = new Browser().Driver;
 
+        _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         _userSteps = new UserSteps(Driver);
         _testCaseSteps = new TestCaseSteps(Driver);
 
