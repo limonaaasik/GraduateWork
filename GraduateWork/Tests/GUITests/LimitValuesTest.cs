@@ -43,7 +43,7 @@ public class LimitValuesTest : BaseTest
         Assert.That(dashboard.IsPageOpened);
         Assert.That(dashboard.IsTestCaseAdded(expectedTestCase254Title.Title));
 
-        // проверка ввода 256 символов
+        // проверка ввода 256 символов + 1 тест на ввод данных превышающих допустимые
         TestCase expectedTestCase256Title = new TestCase.Builder()
             .SetTitle("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
             .Build();

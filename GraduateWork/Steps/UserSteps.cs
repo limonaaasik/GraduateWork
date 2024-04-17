@@ -28,6 +28,15 @@ public class UserSteps : BaseSteps
         return new ProjectsPage(Driver);
     }
 
+    public LoginPage IncorrectLogin(string username, string password)
+    {
+        _loginPage.EmailInput.SendKeys(username);
+        _loginPage.PswInput.SendKeys(password);
+        _loginPage.LoginInButton.Click();
+
+        return _loginPage;
+    }
+
     public DashboardPage OpenDEMOProject()
     {
         _projectsPage.ClickProjectLink();

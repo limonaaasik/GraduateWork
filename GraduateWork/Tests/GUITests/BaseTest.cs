@@ -5,6 +5,7 @@ using GraduateWork.Models;
 using GraduateWork.Steps;
 using Allure.NUnit;
 using GraduateWork.Helpers;
+using Allure.Net.Commons;
 
 namespace GraduateWork.Tests.GUITests;
 
@@ -42,6 +43,14 @@ public class BaseTest
     [TearDown]
     public void TearDown()
     {
+        if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+        {
+            Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+            byte[] scrBytes = screenshot.AsByteArray;
+
+            AllureApi.AddAttachment("errorScreenShot", "image/png", scrBytes);
+        }
+
         Driver.Quit();
     }
 }
