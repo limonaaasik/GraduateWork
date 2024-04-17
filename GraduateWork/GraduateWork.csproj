@@ -10,12 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Tests\APITests\**" />
-      <EmbeddedResource Remove="Tests\APITests\**" />
-      <None Remove="Tests\APITests\**" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Allure.NUnit" Version="2.12.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
@@ -46,6 +40,10 @@
       <Content Include="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Tests\APITests\" />
     </ItemGroup>
 
 </Project>
