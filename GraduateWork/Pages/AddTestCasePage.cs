@@ -22,6 +22,7 @@ namespace GraduateWork.Pages
         private static readonly By _addAttachmentButonBy = By.ClassName("ES46lo");
         private static readonly By _modalWindowBy = By.ClassName("ReactModal__Content");
         private static readonly By _errorTextBy = By.XPath("//div[text()='The title may not be greater than 255 characters.']");
+        private static readonly By _dropZoneBy = By.XPath("//div[@id='intercom-css-container']/following::div[@data-react-modal-body-trap]/following::input[@type = 'file']");
 
         protected override string GetEndpoint()
         {
@@ -45,9 +46,10 @@ namespace GraduateWork.Pages
         public DropDown BehaviorDropDown => new DropDown(Driver, _behaviorDropDownBy);
         public DropDown AutoStatusDropDown => new DropDown(Driver, _automationStatusDropDownBy);
         public UIElement SaveButton => new UIElement(Driver, _saveButtonDropDownBy);
-        public Button AddAttachmentButton => new Button(Driver, _addAttachmentButonBy);
+        public IWebElement AddAttachmentButton => WaitsHelper.WaitForExists(_addAttachmentButonBy);
         public IWebElement ModalWindow => WaitsHelper.WaitForExists(_modalWindowBy);
         public IWebElement ErrorText => WaitsHelper.WaitForExists(_errorTextBy);
+        public IWebElement DropZone => WaitsHelper.WaitForExists(_dropZoneBy);
 
         public void ClearTestCaseTitle()
         {
