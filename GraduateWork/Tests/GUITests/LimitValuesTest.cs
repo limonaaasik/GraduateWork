@@ -1,5 +1,6 @@
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
+using GraduateWork.Helpers;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 using OpenQA.Selenium;
@@ -18,7 +19,7 @@ public class LimitValuesTest : BaseTest
         DashboardPage dashboard = _userSteps.OpenDEMOProject();
         Assert.That(dashboard.IsPageOpened);
 
-        AddTestCasePage testCasePage = _userSteps.ClickAddButton();
+        AddTestCasePage addTestCasePage = _userSteps.ClickAddButton();
 
         // границы ввода 1-255 символов
         // проверка ввода 255 символов
@@ -44,22 +45,20 @@ public class LimitValuesTest : BaseTest
 
         // проверка ввода 256 символов
         TestCase expectedTestCase256Title = new TestCase.Builder()
-            .SetTitle("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+            .SetTitle("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
             .Build();
 
         _userSteps.ClickAddButton();
         _testCaseSteps.AddTestCase(expectedTestCase256Title);
 
-        UIElement errorText = new UIElement(Driver, By.XPath("//div[text()='The title may not be greater than 255 characters.']"));
-        Assert.That(errorText.Displayed);
+        Assert.That(addTestCasePage.ErrorText.Displayed);
 
         // проверка ввода 0 символов
         TestCase expectedTestCase0Title = new TestCase.Builder()
-            .SetStatus("Draft")
             .Build();
 
         _testCaseSteps.AddTestCase(expectedTestCase0Title);
-        Assert.That(testCasePage.IsPageOpened());
+        Assert.That(addTestCasePage.IsPageOpened());
 
         // провекрка ввода 1 символ
         TestCase expectedTestCase1Title = new TestCase.Builder()

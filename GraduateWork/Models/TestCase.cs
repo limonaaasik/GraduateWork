@@ -27,15 +27,15 @@ public class TestCase
 
     public class Builder()
     {
-        public string Title { get; set; }
-        public string Status { get; set; }
-        public string Severity { get; set; }
-        public string Priority { get; set; }
-        public string Type { get; set; }
-        public string Layer { get; set; }
-        public string IsFlaky { get; set; }
-        public string Behavior { get; set; }
-        public string AutomationStatus { get; set; }
+        public string Title { get; set; } = "";
+        public string Status { get; set; } = "Actual";
+        public string Severity { get; set; } = "Normal";
+        public string Priority { get; set; } = "Not set";
+        public string Type { get; set; } = "Other";
+        public string Layer { get; set; } = "Not set";
+        public string IsFlaky { get; set; } = "No";
+        public string Behavior { get; set; } = "Not set";
+        public string AutomationStatus { get; set; } = "Manual";
 
         public Builder SetTitle(string title)
         {

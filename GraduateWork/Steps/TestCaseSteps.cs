@@ -15,6 +15,7 @@ public class TestCaseSteps : BaseSteps
     public DashboardPage AddTestCase(TestCase testCase)
     {
         AddTestCasePage addTestCase = new AddTestCasePage(Driver, false);
+        addTestCase.ClearTestCaseTitle();
         addTestCase.TitleInput.SendKeys(testCase.Title);
         addTestCase.StatusDropDown.SelectByText(testCase.Status);
         addTestCase.SeverityDropDown.SelectByText(testCase.Severity);
