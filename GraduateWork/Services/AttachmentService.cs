@@ -13,11 +13,11 @@ namespace GraduateWork.Services
             _client = client;
         }
 
-        public Task<Attachment> GetAttachmentByHash(string hash)
+        public Task<AttachmentResult> GetAttachmentByHash(string hash)
         {
             var request = new RestRequest("/v1/attachment/{hash}")
                 .AddUrlSegment("hash", hash);
-            return _client.ExecuteAsync<Attachment>(request);
+            return _client.ExecuteAsync<AttachmentResult>(request);
         }
 
         public Task<Attachments> GetAttachments()
@@ -25,6 +25,15 @@ namespace GraduateWork.Services
             var request = new RestRequest("/v1/attachment");
 
             return _client.ExecuteAsync<Attachments>(request);
+        }
+        
+        public Task<UploadAttachment> UploadAttachment(string path)
+        {
+            var request = new RestRequest("/v1/attachment/{code}", Method.Post)
+            .AddUrlSegment("code", "DEMO")
+            .AddFile("file", path);
+
+            return _client.ExecuteAsync<UploadAttachment>(request);
         }
 
         public void Dispose()

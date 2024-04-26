@@ -1,6 +1,5 @@
 using NLog;
 using RestSharp;
-using RestSharp.Authenticators;
 using GraduateWork.Helpers.Configuration;
 using RestSharp.Authenticators.OAuth2;
 
@@ -13,13 +12,10 @@ public sealed class RestClientExtended
 
     public RestClientExtended()
     {
-        var options = new RestClientOptions(Configurator.AppSettings.URI ?? throw new InvalidOperationException())
-        {
-            Authenticator =
-                new OAuth2AuthorizationRequestHeaderAuthenticator("c4b4150f590b68ccb6261af9051c8495bb2d920ca4abf87de7f1172784443df5")
-        };
+        var options = new RestClientOptions(Configurator.AppSettings.URI ?? throw new InvalidOperationException());
 
         _client = new RestClient(options);
+        _client.AddDefaultHeader("Token", Configurator.AppSettings.Token!);
     }
     
     public void Dispose()
