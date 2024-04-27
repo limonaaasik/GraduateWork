@@ -6,5 +6,6 @@ namespace GraduateWork.Services
     {
         public Task<Attachments> GetAttachments();
         public Task<AttachmentResult> GetAttachmentByHash(string hash);
+        public Task<UploadAttachment> UploadAttachment(string path);
     }
 }

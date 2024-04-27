@@ -1,5 +1,4 @@
-﻿using AngleSharp.Common;
-using GraduateWork.Models;
+﻿using GraduateWork.Models;
 using TestRaGraduateWorkilComplexApi.Tests;
 
 namespace GraduateWork.Tests.APITests
@@ -40,6 +39,17 @@ namespace GraduateWork.Tests.APITests
                 Assert.That(uploadAttachment.Status, Is.True);
                 Assert.That(uploadAttachment.Result.ElementAt(0).FileName, Is.EqualTo(fileName));
             });
+        }
+
+        // AFE GET-тест. Вводим хэш аттачмента int вместо string
+        [Test]
+        public void GetAttachmentByHashNegativeTest()
+        {
+            string hash = "1289";
+            var attachment = AttachmentService.GetAttachmentByHash(hash).Result;
+
+            Assert.That(attachment.Status, Is.False);
+            Assert.That(attachment.ErrorMessage, Is.EqualTo("Attachment not found"));
         }
     }
 }
