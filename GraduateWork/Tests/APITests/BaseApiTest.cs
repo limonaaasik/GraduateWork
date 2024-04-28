@@ -6,7 +6,6 @@ namespace TestRaGraduateWorkilComplexApi.Tests;
 
 public class BaseApiTest
 {
-    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
     protected AttachmentService? AttachmentService;
     protected ProjectService? ProjectService;
     

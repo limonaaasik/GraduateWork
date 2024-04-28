@@ -1,29 +1,45 @@
 ﻿using GraduateWork.Models;
+using Newtonsoft.Json;
+using NLog;
 using TestRaGraduateWorkilComplexApi.Tests;
 
 namespace GraduateWork.Tests.APITests
 {
     public class AttachmentTests : BaseApiTest
     {
-        private Attachments? _attachments;
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         [Test]
         public void GetAllAttachmentsTest()
         {
             var attachments = AttachmentService.GetAttachments().Result;
             Assert.That(attachments.Status, Is.True);
-            
-            _attachments = attachments;
         }
 
         [Test]
         public void GetAttachmentByHashTest() 
         {
-            string hash = _attachments.Result.Entities.ElementAt(0).Hash;
-            var attachment = AttachmentService.GetAttachmentByHash(hash).Result;
+            // Загрузка JSON из файла
+            string attachJson = File.ReadAllText(@"Resources/getAttach.json");
 
-            Assert.That(attachment.Status);
-            Assert.That(attachment.Result.Hash, Is.EqualTo(hash));
+            // Создем экземпляр объекта из JSON
+            var attachObj = JsonConvert.DeserializeObject<AttachmentResult>(attachJson);
+            _logger.Info(attachObj.ToString);
+
+            // Берем хэш из json-файла attachmentByHash.json
+            string hash = attachObj.Result.Hash;
+
+            // Отправляем в запросе этот хэш из файла attachmentByHash.json
+            var attachment = AttachmentService.GetAttachmentByHash(hash).Result;
+            _logger.Info(attachment);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(attachment.Status);
+                Assert.That(attachment.Result.Hash, Is.EqualTo(hash));
+                Assert.That(attachment.Result.File, Is.EqualTo(attachObj.Result.File));
+                Assert.That(attachment.Result.Size, Is.EqualTo(attachObj.Result.Size));
+            });
         }
 
         [Test]
