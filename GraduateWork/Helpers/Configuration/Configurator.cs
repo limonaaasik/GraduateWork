@@ -39,6 +39,7 @@ namespace GraduateWork.Helpers.Configuration
 
                 appSettings.URL = child["URL"];
                 appSettings.URI = child["URI"];
+                appSettings.Token = child["Token"];
                 appSettings.Username = child["Username"];
                 appSettings.Password = child["Password"];
 

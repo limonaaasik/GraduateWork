@@ -39,7 +39,10 @@
       <None Remove="appsettings.json" />
       <None Remove="C:\Users\meow-\.nuget\packages\nlog.schema\5.2.8\contentFiles\any\any\NLog.xsd" />
       <None Remove="NLog.config" />
+      <None Remove="Resources\attachmentByHash.json" />
       <None Remove="Resources\cat_picture.jpg" />
+      <None Remove="Resources\getAttach.json" />
+      <ApplicationDefinition Include="Resources\attachmentByHash.json" />
       <Content Include="allureConfig.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
@@ -50,6 +53,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\cat_picture.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\getAttach.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
