@@ -1,9 +1,11 @@
 using GraduateWork.Services;
-using NLog;
 using GraduateWork.Clients;
+using Allure.NUnit;
 
 namespace TestRaGraduateWorkilComplexApi.Tests;
 
+[AllureNUnit]
+[Parallelizable(scope: ParallelScope.Fixtures)]
 public class BaseApiTest
 {
     protected AttachmentService? AttachmentService;

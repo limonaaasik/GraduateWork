@@ -1,12 +1,15 @@
+using Allure.NUnit.Attributes;
 using GraduateWork.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
 namespace GraduateWork.Tests.GUITests;
 
+[AllureSuite("Suite: GUI Tests")]
 public class HoverTest : BaseTest
 {
     [Test]
+    [AllureDescription("“ест на проверку всплывающего сообщени€")]
     public void SuccessfulDisplayedHover()
     {
         ProjectsPage projectPage = _userSteps.SuccessfulLogin(Admin);

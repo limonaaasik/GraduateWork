@@ -1,16 +1,14 @@
 using Allure.NUnit.Attributes;
-using GraduateWork.Elements;
-using GraduateWork.Helpers;
 using GraduateWork.Models;
 using GraduateWork.Pages;
-using OpenQA.Selenium;
 
 namespace GraduateWork.Tests.GUITests;
 
+[AllureSuite("Suite: GUI Tests")]
 public class LimitValuesTest : BaseTest
 {
     [Test]
-    [AllureDescription("Проверка ввода 255 символов - граничное значение")]
+    [AllureDescription("Проверка граничных значений. Допустимый ввод 1 - 255 символов.")]
     public void CheckLimitValue()
     {
         ProjectsPage projectPage = _userSteps.SuccessfulLogin(Admin);

@@ -1,12 +1,15 @@
+using Allure.NUnit.Attributes;
 using GraduateWork.Pages;
 using OpenQA.Selenium;
 using System.Reflection;
 
 namespace GraduateWork.Tests.GUITests;
 
+[AllureSuite("Suite: GUI Tests")]
 public class UploadFileTest : BaseTest
 {
     [Test]
+    [AllureDescription("Тест на проверку загрузки файла")]
     public void SuccessfulUploadTest()
     {
         ProjectsPage projectPage = _userSteps.SuccessfulLogin(Admin);

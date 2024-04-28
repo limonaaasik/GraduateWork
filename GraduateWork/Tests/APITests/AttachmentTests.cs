@@ -1,15 +1,18 @@
-﻿using GraduateWork.Models;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Models;
 using Newtonsoft.Json;
 using NLog;
 using TestRaGraduateWorkilComplexApi.Tests;
 
 namespace GraduateWork.Tests.APITests
 {
+    [AllureSuite("Suite: API Tests")]
     public class AttachmentTests : BaseApiTest
     {
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         [Test]
+        [Category("NFE API Tests")]
         public void GetAllAttachmentsTest()
         {
             var attachments = AttachmentService.GetAttachments().Result;
@@ -17,6 +20,7 @@ namespace GraduateWork.Tests.APITests
         }
 
         [Test]
+        [Category("NFE API Tests")]
         public void GetAttachmentByHashTest() 
         {
             // Загрузка JSON из файла
@@ -43,6 +47,7 @@ namespace GraduateWork.Tests.APITests
         }
 
         [Test]
+        [Category("NFE API Tests")]
         public void UploadAttachmentTest()
         {
             string fileName = "cat_picture.jpg";
@@ -59,6 +64,7 @@ namespace GraduateWork.Tests.APITests
 
         // AFE GET-тест. Вводим хэш аттачмента int вместо string
         [Test]
+        [Category("AFE API Tests")]
         public void GetAttachmentByHashNegativeTest()
         {
             string hash = "1289";

@@ -1,11 +1,14 @@
+using Allure.NUnit.Attributes;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 
 namespace GraduateWork.Tests.GUITests;
 
+[AllureSuite("Suite: GUI Tests")]
 public class RemoveTestCaseTest : BaseTest
 {
     [Test]
+    [AllureDescription("Тест на проверку удаления сущности тест-кейс")]
     public void SuccessfulDeleteTestCase()
     {
         ProjectsPage projectPage = _userSteps.SuccessfulLogin(Admin);

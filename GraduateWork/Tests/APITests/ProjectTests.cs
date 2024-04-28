@@ -1,10 +1,14 @@
-﻿using TestRaGraduateWorkilComplexApi.Tests;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Services;
+using TestRaGraduateWorkilComplexApi.Tests;
 
 namespace GraduateWork.Tests.APITests
 {
+    [AllureSuite("Suite: API Tests")]
     public class ProjectTests : BaseApiTest
     {
         [Test]
+        [Category("NFE API Tests")]
         public void GetAllProjectsTest()
         {
             var projects = ProjectService.GetProjects().Result;
@@ -13,6 +17,7 @@ namespace GraduateWork.Tests.APITests
         }
 
         [Test]
+        [Category("AFE API Tests")]
         public void GetProjectByCodeNegativeTest()
         {
             string code = "59289";

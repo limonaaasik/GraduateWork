@@ -1,11 +1,14 @@
+using Allure.NUnit.Attributes;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 
 namespace GraduateWork.Tests.GUITests;
 
+[AllureSuite("Suite: GUI Tests")]
 public class CreateTestCaseTest : BaseTest
 {
     [Test]
+    [AllureDescription("Тест на проверку создания сущности тест-кейс")]
     public void SuccessfulAddTestCase()
     {
         ProjectsPage projectPage = _userSteps.SuccessfulLogin(Admin);
