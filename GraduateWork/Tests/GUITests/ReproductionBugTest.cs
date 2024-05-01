@@ -1,11 +1,11 @@
-using Allure.NUnit.Attributes;
-using GraduateWork.Helpers.Configuration;
-using GraduateWork.Models;
-using GraduateWork.Pages;
+//using Allure.NUnit.Attributes;
+//using GraduateWork.Helpers.Configuration;
+//using GraduateWork.Models;
+//using GraduateWork.Pages;
 
-namespace GraduateWork.Tests.GUITests;
+//namespace GraduateWork.Tests.GUITests;
 
-[AllureSuite("Suite: GUI Tests")]
+//[AllureSuite("Suite: GUI Tests")]
 //public class ReproductionBugTest : BaseTest
 //{
 //    [Test]
