@@ -10,7 +10,6 @@ using Allure.Net.Commons;
 namespace GraduateWork.Tests.GUITests;
 
 [Parallelizable(scope: ParallelScope.All)]
-[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [AllureNUnit]
 public class BaseTest
 {

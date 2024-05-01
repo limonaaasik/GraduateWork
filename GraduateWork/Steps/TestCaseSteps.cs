@@ -1,5 +1,4 @@
 using GraduateWork.Elements;
-using GraduateWork.Helpers;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 using OpenQA.Selenium;

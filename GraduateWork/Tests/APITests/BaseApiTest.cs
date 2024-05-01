@@ -5,7 +5,7 @@ using Allure.NUnit;
 namespace TestRaGraduateWorkilComplexApi.Tests;
 
 [AllureNUnit]
-[Parallelizable(scope: ParallelScope.Fixtures)]
+[Parallelizable(scope: ParallelScope.All)]
 public class BaseApiTest
 {
     protected AttachmentService? AttachmentService;
